@@ -98,8 +98,11 @@
 										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
 									</div>
 								</form>
-								<ul class="actions">
+								<!-- <ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
+								</ul> -->
+								<ul class="actions">
+									<li><button class="button" id="sendButton">Send Message</button></li>
 								</ul>
 							</div>
 							<div class="col-4 col-12-small">
@@ -116,6 +119,21 @@
 							</div>
 						</div>
 					</section>
+
+					<script>
+						document.getElementById("sendButton").addEventListener("click", function() {
+								var name = document.getElementById("name").value;
+								var email = document.getElementById("email").value;
+								var message = document.getElementById("message").value;
+
+								var subject = encodeURIComponent(name);
+								var body = encodeURIComponent(message);
+
+								var mailtoLink = "mailto:destinatario@gmail.com?subject=" + subject + "&body=" + body;
+
+								window.location.href = mailtoLink;
+						});
+				</script>
 
 				<!-- Four -->
 				<!--
